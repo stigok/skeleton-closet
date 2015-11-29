@@ -1,0 +1,34 @@
+{
+  "name": "skeleton-closet",
+  "version": "1.0.0",
+  "description": "fill the current folder with your favorite skeleton",
+  "main": "index.js",
+  "bin": {
+    "skeleton-closet": "index.js",
+    "closet": "index.js"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "rimraf": "^2.4.4"
+  },
+  "xo": {
+    "space": true,
+    "envs": [
+      "nodejs",
+      "mocha"
+    ]
+  },
+  "keywords": [
+    "skeleton",
+    "init",
+    "initialise",
+    "template"
+  ],
+  "author": "stigok",
+  "license": "SEE LICENSE IN LICENSE"
+}
