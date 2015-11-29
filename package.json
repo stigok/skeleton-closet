@@ -12,6 +12,7 @@
     "test": "mocha"
   },
   "devDependencies": {
+    "async": "^1.5.0",
     "chai": "^3.4.1",
     "mocha": "^2.3.4",
     "rimraf": "^2.4.4"
@@ -30,5 +31,8 @@
     "template"
   ],
   "author": "stigok",
-  "license": "SEE LICENSE IN LICENSE"
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "ncp": "^2.0.0"
+  }
 }

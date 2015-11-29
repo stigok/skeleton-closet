@@ -6,18 +6,7 @@ a command line utility to initialise new projects with a predefined skeleton.
 
 Run `closet` to get a skeleton. Add `--help` to get some help with that.
 
-Fill current folder with your favorite skeleton. Expects empty target directory. Use `-f` to ignore.
-
-    $: closet
-
-Create a new project folder containing your skeleton
-
-    $: closet <name>
-
-
-Use current directory [or specified path] as the source skeleton from now on
-
-    $: closet --source [<path>]
+`closet` is an alias for `skeleton-closet`.
 
 ## Installation
 
@@ -25,10 +14,15 @@ Use current directory [or specified path] as the source skeleton from now on
 
 ## Example
 
-If you have set your source folder, simply
+Set source folder
 
-    cd ~/
-    closet my_new_project_name
+    $: closet --set ~/home/user/repos/skeletons/node
+
+Create a new project from skeleton
+
+    $: cd /home/user/repos
+    $: closet my-new-project
+    $: cd my-new-project
 
 ## Thoughts
 
@@ -36,3 +30,7 @@ If you have set your source folder, simply
   - Option for default project directory to always spawn new folders
   - Add a ready with description specified in `-d`
   - Run interactively
+
+## License
+
+See [./LICENSE](./LICENSE) for license

@@ -1,5 +1,5 @@
 var h = require('./test/helpers');
 
-var same = h.isCopyOf('./test', './test');
+var same = h.isCopyOf('./test', './stest');
 console.log('are they the same?');
 console.log(same ? 'yes' : 'no');
