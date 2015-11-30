@@ -4,7 +4,6 @@ var cli = require('cli');
 var pkg = require('../package.json');
 var path = require('path');
 var closet = require('../closet.js');
-var fs = require('fs');
 
 cli.setApp(pkg.name, pkg.version);
 cli.enable('help', 'version');
@@ -18,14 +17,13 @@ cli.parse({
 });
 
 cli.main(function (args, options) {
-  // --info
+  // Current source skeleton info
   if (options.info) {
-    var source = closet.getSourcePath() || 'not set';
-    console.log('Current source skeleton is %s', source);
+    console.log('Current source skeleton is %s', closet.getSourcePath() || 'not set');
     return process.exit(0);
   }
 
-  // --source
+  // Set current source skeleton
   if (options.source || options['source-path']) {
     var src = options['source-path'] || process.cwd();
     closet.saveSourcePath(src);
@@ -33,38 +31,24 @@ cli.main(function (args, options) {
     return process.exit(0);
   }
 
-  // copy into current directory
-  if (args.length === 0) {
-    var files = fs.readdirSync(process.cwd());
-    if (files.length > 0 && !options.force) {
-      console.error('This directory is not empty. use -f or --force to ignore this (will overwrite)');
-      return process.exit(1);
-    }
-    closet.copy(process.cwd(), function (err) {
-      if (err) {
-        console.error(err);
-        return process.exit(1);
-      }
-      console.log('Created new project folder %s', process.cwd());
-    });
+  var source = options.source || closet.getSourcePath();
+  var target = (args.length === 0) ? process.cwd() : path.join(process.cwd(), args[0]);
+  var opts = {
+    source: source,
+    target: target,
+    force: options.force
+  };
+
+  if (!source) {
+    console.error('No source skeleton set');
+    return process.exit(0);
   }
 
-  // copy into specified directory
-  if (args.length === 1) {
-    var name = args[0];
-    var target = path.join(process.cwd(), name);
-
-    if (fs.existsSync(target)) {
-      console.error('path already exists');
+  closet.copy(opts, function (err) {
+    if (err) {
+      console.error(err);
       return process.exit(1);
     }
-
-    closet.copy(target, function (err) {
-      if (err) {
-        console.error(err);
-        return process.exit(1);
-      }
-      console.log('created new project folder');
-    });
-  }
+    console.log('Skeleton successfully raised at %s', target);
+  });
 });
