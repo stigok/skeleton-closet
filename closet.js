@@ -1,7 +1,8 @@
 var fs = require('fs');
 var ncp = require('ncp').ncp;
-// var path = require('path');
-var configPath = '../source-path.config';
+var path = require('path');
+var appDir = path.dirname(require.main.filename);
+var configPath = path.join(appDir, 'source-path.config');
 
 module.exports.copy = function (source, target, cb) {
   if (arguments.length === 2) {
@@ -26,5 +27,6 @@ module.exports.getSourcePath = function () {
   var fd = fs.openSync(configPath, 'a+');
   var buf = fs.readFileSync(configPath, {flags: 'a+'});
   fs.closeSync(fd);
-  return buf.toString();
+  var sourcePath = buf.toString();
+  return (sourcePath.length > 0) ? sourcePath : null;
 };

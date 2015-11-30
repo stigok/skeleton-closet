@@ -4,18 +4,16 @@
   "description": "fill the current folder with your favorite skeleton",
   "main": "index.js",
   "bin": {
-    "skeleton-closet": "index.js",
-    "closet": "index.js"
+    "skeleton-closet": "bin/cli.js",
+    "closet": "bin/cli.js"
   },
   "preferGlobal": true,
   "scripts": {
     "test": "mocha"
   },
-  "devDependencies": {
-    "async": "^1.5.0",
-    "chai": "^3.4.1",
-    "mocha": "^2.3.4",
-    "rimraf": "^2.4.4"
+  "dependencies": {
+    "cli": "^0.11.1",
+    "ncp": "^2.0.0"
   },
   "xo": {
     "space": true,
@@ -31,8 +29,5 @@
     "template"
   ],
   "author": "stigok",
-  "license": "SEE LICENSE IN LICENSE",
-  "dependencies": {
-    "ncp": "^2.0.0"
-  }
+  "license": "SEE LICENSE IN LICENSE"
 }
