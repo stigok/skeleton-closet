@@ -14,9 +14,11 @@ Run `closet` to get a skeleton. Add `--help` to get some help with that.
 
 ## Example
 
+There is an example skeleton for node projects in [./examples/skeletons/node](./examples/skeletons/node).
+
 Set source folder
 
-    $: closet --set ~/home/user/repos/skeletons/node
+    $: closet --source-path ~/home/user/repos/skeletons/node
 
 Create a new project from skeleton
 
@@ -27,9 +29,11 @@ Create a new project from skeleton
 ## Thoughts
 
   - Option to include a specific skeleton for a different project type (`closet -t <type>` npm, nodejs, html, etc.)
-  - Option for default project directory to always spawn new folders
+  - Option to have a default project container directory to always spawn new projects
   - Add a ready with description specified in `-d`
   - Run interactively
+  - Automatically cd into new project directory
+  - Run npm init / git init automatically
 
 ## License
 
