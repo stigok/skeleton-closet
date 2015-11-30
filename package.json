@@ -1,27 +1,20 @@
 {
   "name": "skeleton-closet",
-  "version": "1.0.0",
-  "description": "fill the current folder with your favorite skeleton",
+  "version": "0.0.0",
+  "description": "Create a new project folder from your favorite skeleton",
   "main": "index.js",
   "bin": {
     "skeleton-closet": "bin/cli.js",
     "closet": "bin/cli.js"
   },
   "preferGlobal": true,
-  "scripts": {
-    "test": "mocha"
-  },
   "dependencies": {
     "cli": "^0.11.1",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0"
   },
   "xo": {
-    "space": true,
-    "envs": [
-      "nodejs",
-      "mocha"
-    ]
+    "space": true
   },
   "keywords": [
     "skeleton",
